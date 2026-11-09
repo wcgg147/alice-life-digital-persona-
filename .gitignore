@@ -1,0 +1,65 @@
+# Python and Node artifacts
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+alice/config/.env*
+!alice/config/.env.example
+*_cookies.json
+*cookies*.json
+secrets/
+
+# Runtime state, databases, logs, and generated output
+.runtime/
+*.db
+*.sqlite
+*.sqlite3
+*.sqlite-wal
+*.sqlite-shm
+*.db-wal
+*.db-shm
+*.sqlite3-journal
+*.log
+*.trace
+*.har
+output/
+reports/
+debug_audio/
+
+# Local editors, agent tooling, and review artifacts
+/.codex/
+/.trae/
+/.zcode/
+/.vscode/
+/.idea/
+/.playwright-cli/
+/.agents/skill-sources/
+/.agents/skills/
+/.agents/references/
+/docs/agents/
+/AGENTS.md
+LOCAL_REVIEW.md
+/SPLIT-PLAN.md
+/_review-*.md
+/_review-task-*.md
+/_tests*.txt
+
+# Archived, operator-specific, or private research material
+_pruned/
+/docs/research/
+/docs/cognition/*.md
+!/docs/cognition/OVERVIEW.md
+/alice/qq/*.md
+/alice/surf/README.md
+/alice/surf/READING-HANDOFF.md
+/alice/surf/PERSONA-BOUNDARY-TODO.md
+/alice/surf/SOCIAL-TRIGGER-TODO.md
+/tools/cognition_*_probe.py
+/tools/repair_rate.py
+/tools/seed_alice_status.py

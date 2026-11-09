@@ -1,0 +1,13 @@
+# 服务器侧的脚本与配置**必须**是 LF。
+#
+# 为什么单独声明：本机（Windows）的 core.autocrlf 会把检出变成 CRLF，
+# 而带 CRLF 的 shell 脚本在 Linux 上会报
+#     bash: /opt/lang/deployment/apply.sh: /usr/bin/env bash^M: bad interpreter
+# 对 git 钩子尤其致命：post-receive 带 CRLF 会让每次 push 直接失败，
+# 而且报错里那个 ^M 肉眼几乎看不见，很难查。
+#
+# 只锁定真正会在服务器上执行的这几类，不动其它文件，避免无谓的全库重整。
+*.sh                     text eol=lf
+deployment/git-hooks/*   text eol=lf
+deployment/nginx/*.conf  text eol=lf
+deployment/systemd/*.service text eol=lf
