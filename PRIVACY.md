@@ -1,34 +1,36 @@
-# Privacy and data handling
+[简体中文](PRIVACY.md) | [English](PRIVACY.en.md)
 
-Alice can process personal and conversational data. This document describes the current software boundaries; it is not a claim that every path has been independently audited or that the project is suitable for sensitive or production use.
+# 隐私与数据处理
 
-## Data the software may handle
+Alice 可能会处理个人信息和对话数据。本文说明当前软件的数据边界；它不表示所有数据流都经过独立审计，也不代表本项目适用于敏感信息或生产环境。
 
-Depending on enabled features and configuration, the software may read or store:
+## 软件可能处理的数据
 
-- messages, account identifiers, group identifiers, and delivery receipts;
-- persona, relationship, and interaction memories;
-- model prompts and responses, search results, and excerpts from public pages;
-- action history, source references, usage counts, and diagnostic metrics.
+根据启用的功能和配置，软件可能读取或保存：
 
-Local databases and logs may therefore contain personal or sensitive material. Protect them as private data and do not publish them as examples.
+- 消息、账号标识、群组标识和消息送达回执；
+- 人格、关系和互动记忆；
+- 模型提示词与回复、搜索结果和公开网页摘录；
+- 行动历史、来源引用、用量统计和诊断指标。
 
-## External services
+本地数据库和日志因此可能包含个人或敏感内容。请按私密数据妥善保护，不要将其作为公开示例发布。
 
-When enabled, configured LLM and search providers receive the inputs required for their requests. QQ integration communicates with QQ through the configured connector. Reading features request pages from external websites. Each service has its own retention, access, and privacy terms; review those terms and configure only services you intend to use.
+## 外部服务
 
-The project does not promise that prompts, messages, or excerpts remain on the local device. Avoid sending sensitive personal data to services unless you have reviewed and accepted the applicable terms and settings.
+启用相关功能后，配置的大语言模型和搜索服务会收到完成请求所需的输入。QQ 集成会通过配置的连接器与 QQ 通信。阅读功能会向外部网站请求页面。每个服务都有自己的数据保留、访问和隐私条款；请先阅读条款，只配置你准备使用的服务。
 
-## Storage and deletion
+本项目不保证提示词、消息或网页摘录始终保留在本机。除非已经了解并接受相应服务的条款和设置，否则不要向外部服务发送敏感个人信息。
 
-Credentials and runtime state are expected to be supplied locally and kept outside version control. The cognition ledger has owner-scoped export, revoke, and delete operations. These operations do not delete all QQ channel data, persona database records, provider-side data, backups, or every other store used by the project. There is not yet a single end-to-end export or deletion mechanism across all integrations.
+## 存储与删除
 
-Before using real accounts, identify each enabled store and its backup location. Do not assume deleting one database removes copies held elsewhere.
+凭据和运行状态应由本地提供，并排除在版本控制之外。认知账本提供按所有者范围限定的导出、撤回和删除操作，但这些操作不会删除所有 QQ 通道数据、人格数据库记录、服务商端数据、备份或其他存储中的副本。当前还没有覆盖所有集成的端到端统一导出或删除机制。
 
-## Safe use
+使用真实账号前，请确认每个已启用存储位置及其备份位置。删除一个数据库不代表其他位置的副本也被删除。
 
-- Use test accounts and synthetic conversations during evaluation.
-- Keep configuration, credentials, cookies, local databases, runtime logs, and captured evidence private.
-- Disable integrations you do not need and grant only the permissions required for the feature.
-- Review the data sent to model and search providers before enabling real conversations.
-- Do not treat a public website's availability as permission to bypass its access controls or terms.
+## 安全使用建议
+
+- 评估时使用测试账号和合成对话。
+- 将配置、凭据、Cookie、本地数据库、运行日志和记录材料保存在私有位置。
+- 关闭不需要的集成，只授予功能必需的权限。
+- 启用真实对话前，检查将发送给模型和搜索服务的数据。
+- 不要把公开网站可访问等同于可以绕过其访问控制或使用条款。

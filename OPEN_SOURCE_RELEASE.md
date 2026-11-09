@@ -1,29 +1,26 @@
-# First public release checklist
+[简体中文](OPEN_SOURCE_RELEASE.md) | [English](OPEN_SOURCE_RELEASE.en.md)
 
-This checklist describes the current candidate and the remaining work before a public announcement.
+# 开源快照说明
 
-## Prepared
+本仓库已在 GitHub 公开。项目目前暂停开发，软件仍处于实验阶段；这次公开不代表已验证生产可用性或长期维护承诺。
 
-- [x] Exclude operator paths, known account identifiers, private operator documents, runtime state, and deployment secrets from the current snapshot.
-- [x] Create a new parentless initial history. The original local history remains untouched; never push its `main`, all branches, or all tags.
-- [x] Keep credentials, cookies, databases, runtime ledgers, logs, review packets, generated evidence, and local environment files out of the candidate.
-- [x] Exclude unrelated product-line documents and local editor/agent artifacts.
-- [x] Select MIT for original project files and record the call audio GPL-3.0-only exception in `THIRD_PARTY_NOTICES.md`.
-- [x] Scan all 206 snapshot files for workstation paths, email-shaped values, known QQ identifiers, and high-confidence credential formats; no matches remained.
-- [x] Run `npm audit --package-lock-only --audit-level=high`; the pinned JavaScript dependency reports 0 vulnerabilities. The lockfile package name and registry URL were normalized for public use.
-- [x] Query OSV for all 18 pinned Python packages; no advisories were returned for the locked versions.
+## 公开范围
 
-## Before publishing
+- Git 历史从经过整理的根提交开始，不包含原始本地仓库历史、分支或标签。
+- 未纳入本机配置、凭据、Cookie、运行数据库、账本、日志、聊天记录和本地运维资料。
+- 仓库中的 QQ 通话音频组件及其他第三方依赖保留各自许可证，详见[第三方声明](THIRD_PARTY_NOTICES.md)。
 
-- [x] Review licenses for all 18 pinned Python dependencies and the pinned `playwright-core` dependency; record versions, SPDX identifiers, and sources in `THIRD_PARTY_NOTICES.md`.
-- [ ] Complete an owner review of the exact source snapshot, third-party notices, and tests.
-- [ ] Replace the project-alias commit email with the maintainer's chosen GitHub noreply address if account attribution is desired.
-- [ ] Make the repository public only after the checks above are complete.
+## 本次检查
 
-## Prepared snapshot
+- 对公开快照做了本机路径、已知账号标识和高置信度凭据格式扫描，没有发现匹配项。这类规则扫描不能证明仓库绝无敏感信息。
+- `npm audit --package-lock-only --audit-level=high` 未报告漏洞。
+- OSV 对锁文件中的 18 个 Python 包版本查询未返回漏洞。
+- 项目测试未在此次开源整理中运行。
 
-The candidate is branch `codex/alice-public-release`, a single root commit with no parent history. It has no Git remote and has not been pushed. Push only this branch to a new public repository; do not push all refs from the original checkout.
+漏洞检查是 2026-11-09 的时间点结果，不能覆盖所有漏洞数据库或未来新披露的问题。依赖升级后请重新检查。
 
-The original checkout still contains local runbooks and historical research records that were excluded from this candidate. Do not copy them in without review. Test fixtures use synthetic account and group identifiers; review any future fixture changes before publication.
+## 已知限制
 
-The OSV and npm audit results are point-in-time checks and do not guarantee that every vulnerability source is covered. `pip-audit` was not installed. The license inventory was assembled from pinned package metadata and upstream license sources; recheck it whenever the lockfiles change.
+- 当前没有支持完整系统的一键安装流程；不同集成需要额外账号、本地服务、系统组件和服务商配置。
+- 部分运行流程会向外部模型、搜索服务、QQ 或网站发送数据。配置前请阅读[隐私与数据处理说明](PRIVACY.md)。
+- 没有受维护的发布分支或安全修复承诺。发现问题可按[安全政策](SECURITY.md)报告。

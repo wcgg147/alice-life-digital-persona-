@@ -1,21 +1,23 @@
-# Cognitive architecture overview
+[简体中文](OVERVIEW.md) | [English](OVERVIEW.en.md)
 
-Alice is an experimental LLM-based digital individual project. The cognition code explores a persistent loop connecting goals, actions, evidence, feedback, and later choices. It does not establish consciousness or reliable long-term learning.
+# 认知架构概览
 
-## Main parts
+Alice 是一个基于大语言模型的实验性数字个体项目。认知代码探索如何把目标、行动、证据、反馈和后续选择连接成持久循环。本项目不能证明意识或可靠的长期学习。
 
-- `state.py` stores scoped episodes, goals, action records, and evidence in a persistent ledger.
-- `environment.py` describes currently available observations and actions.
-- `decision.py` validates proposed actions against the visible and authorized action set.
-- `loop.py` coordinates one bounded decision opportunity and records its result.
-- Inquiry, consolidation, social, and self-model modules maintain source-bound interpretations, unresolved questions, feedback, and capability limits.
+## 主要组成
 
-The intended runtime cycle is: read current state, choose an action or rest, execute only a validated action, record the outcome, and schedule another opportunity. The intended learning cycle compares a recorded expectation with observed feedback, updates a bounded interpretation, and checks whether later behavior changes.
+- `state.py`：在持久账本中保存按范围隔离的经历、目标、行动记录和证据。
+- `environment.py`：描述当前可见的观察和可用行动。
+- `decision.py`：将候选行动限制在当前可见且已授权的范围内。
+- `loop.py`：协调一次有界的决策机会，并记录结果。
+- 探究、整合、社交和自我模型模块：维护绑定来源的解释、未决问题、反馈及能力限制。
 
-## Evidence limits
+运行循环的设计是：读取当前状态，选择行动或休息，只执行经过校验的行动，记录结果，并安排下一次机会。学习循环会将行动前预期与观察到的反馈进行比较，更新有边界的解释，再检查后续行为是否变化。
 
-Automated checks establish software behavior for their fixtures. Isolated model trials, public-source reads, and a small number of natural actions are separate forms of evidence. None alone establishes durable learning, broad transfer, consciousness, or production reliability. Historical details and operator-specific paths are intentionally kept out of this overview.
+## 证据边界
 
-## Data boundary
+自动化检查只能说明测试样例覆盖的软件行为。隔离模型试验、公开来源阅读和少量自然行动是不同类型的证据，任何一项都不足以证明持久学习、广泛迁移、意识或生产可靠性。本概览不包含历史实验细节和运维专用路径。
 
-The cognition ledger may contain prompts, model responses, source excerpts, and action results. Provider calls can send request content outside the local machine. Review [Privacy and data handling](../../PRIVACY.md) before configuring services or real accounts.
+## 数据边界
+
+认知账本可能包含提示词、模型回复、来源摘录和行动结果。调用服务商时，请求内容可能离开本机。配置服务或真实账号前，请阅读[隐私与数据处理说明](../../PRIVACY.md)。

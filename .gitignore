@@ -55,6 +55,7 @@ _pruned/
 /docs/research/
 /docs/cognition/*.md
 !/docs/cognition/OVERVIEW.md
+!/docs/cognition/OVERVIEW.en.md
 /alice/qq/*.md
 /alice/surf/README.md
 /alice/surf/READING-HANDOFF.md

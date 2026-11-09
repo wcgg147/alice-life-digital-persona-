@@ -1,51 +1,53 @@
-# Alice — Digital Individual Research
+[简体中文](README.md) | [English](README.en.md)
 
-Alice is an open research project exploring how an LLM-based digital individual can maintain continuity, choose goals, act in an online environment, and revise beliefs from evidence and feedback.
+# Alice——数字个体研究项目
 
-The project is experimental software. It does not establish consciousness, reliable self-directed learning, or production readiness. A successful test or a single natural action is evidence only for the behavior that was actually tested.
+Alice 是一个开源研究项目，探索基于大语言模型的数字个体如何保持经历连续性、选择目标、在网络环境中行动，并根据证据与反馈修正认识。
 
-## Project status
+本项目仍处于实验阶段。它不能证明意识、可靠的自主学习或生产可用性。一次测试或一次自然行动，只能说明实际验证过的那项行为。
 
-Development is currently paused. The repository contains several subsystems at different maturity levels, including online reading, a QQ integration, persistent memory, and a cognitive loop. Some integrations depend on accounts, local services, provider APIs, platform access, or credentials that are not included here. There is no supported one-command setup for the full system.
+## 项目状态
 
-The cognitive architecture aims to keep two related cycles connected:
+项目目前暂停开发。仓库包含多个成熟度不同的子系统，包括在线阅读、QQ 接入、持久记忆和认知循环。部分功能依赖账号、本地服务、模型或平台接口及凭据；这些内容不会随仓库提供。目前没有支持完整系统的一键安装方式。
 
-1. A runtime cycle that reads state, chooses an action or rest, records the outcome, and schedules another opportunity.
-2. A learning cycle that compares an expected result with observed evidence, updates a bounded and retractable interpretation, and checks whether later choices change.
+认知架构希望连接两个循环：
 
-See the public [cognition overview](docs/cognition/OVERVIEW.md) for the architecture and its evidence limits. Operator runbooks and dated experiment records are local research material and are not part of the public source snapshot.
+1. **运行循环**：读取状态，选择行动或休息，记录结果，并安排下一次运行机会。
+2. **学习循环**：对比行动前预期和实际证据，更新有边界、可撤回的认识，再观察后续选择是否发生变化。
 
-## Repository layout
+架构和证据边界见[认知架构概览](docs/cognition/OVERVIEW.md)。本仓库不包含运维手册和按日期记录的实验资料。
 
-- `alice/cognition/` — persistent state, decisions, inquiry, feedback, and self-model mechanisms.
-- `alice/agent/`, `alice/engine/`, `alice/life/`, `alice/memory/`, `alice/persona/` — reading, actions, memory, and persona code.
-- `alice/qq/` — optional QQ channel integration.
-- `alice/surf/` — online exploration and reading workflows.
-- `deployment/` — runtime entry points and deployment support.
-- `docs/` — curated architecture and research documentation.
+## 目录概览
 
-## Requirements and setup
+- `alice/cognition/`：持久状态、决策、探究、反馈和自我模型。
+- `alice/agent/`、`alice/engine/`、`alice/life/`、`alice/memory/`、`alice/persona/`：阅读、行动、记忆和人格相关代码。
+- `alice/qq/`：可选的 QQ 通道接入。
+- `alice/surf/`：在线探索和阅读流程。
+- `deployment/`：运行入口和部署支持。
+- `docs/`：经过筛选的架构和研究文档。
 
-The cognition runtime currently targets Python 3.12. Its pinned dependencies are listed in `deployment/cognition/requirements.txt` and `deployment/cognition/requirements.lock`. Other integrations have additional system, account, and provider requirements. Review the relevant subsystem documentation before running anything that can contact external services or write persistent state.
+## 环境与运行
 
-The cognition entry point is `deployment/cognition/run.sh`. It can start model calls and read external sources; do not run it until provider configuration, the state path, and the intended network permissions are understood. The project does not ship credentials or a public demo account.
+认知运行时目前以 Python 3.12 为目标版本。锁定依赖见 `deployment/cognition/requirements.txt` 和 `deployment/cognition/requirements.lock`。其他集成还有额外的系统、账号和服务商要求。
 
-The optional social-demand filter accepts `ALICE_IGNORED_BOT_QQ_IDS` as a comma-separated list. Supply account identifiers through private deployment configuration; they are not embedded in the source.
+认知入口为 `deployment/cognition/run.sh`。它可能发起模型请求并读取外部网页。运行前请先确认服务商配置、状态数据路径和网络权限。仓库不包含凭据或公开演示账号。
 
-## Data and privacy
+可选的社交需求过滤器通过 `ALICE_IGNORED_BOT_QQ_IDS` 环境变量接收逗号分隔的账号 ID。请在私有部署配置中提供账号标识，不要把它们写进源码。
 
-Runtime data can include conversation text, persona and relationship memories, source excerpts, model inputs and outputs, action receipts, and usage metrics. Depending on the configured feature, data may be sent to an LLM provider, a search provider, QQ, or a public website. Local configuration and local storage do not mean that every operation stays on the device.
+## 数据与隐私
 
-Read [Privacy and data handling](PRIVACY.md) before configuring an account. The current code does not provide one complete deletion path across every integration and storage backend.
+运行数据可能包含聊天文本、人格与关系记忆、来源摘录、模型输入和输出、行动回执及用量统计。根据启用的功能，数据可能发送给大语言模型服务商、搜索服务、QQ 或公开网站。本地配置和本地存储不代表所有操作都只发生在本机。
 
-## Security
+配置账号前请阅读[隐私与数据处理说明](PRIVACY.md)。当前代码尚未提供覆盖所有集成和存储后端的统一删除流程。
 
-Do not commit `.env` files, provider keys, cookies, QQ configuration, databases, runtime ledgers, logs, or captured conversations. See [Security policy](SECURITY.md) to report a vulnerability.
+## 安全
 
-## License
+不要提交 `.env`、服务商密钥、Cookie、QQ 配置、数据库、运行账本、日志或聊天记录。漏洞报告方式见[安全政策](SECURITY.md)。
 
-Original project files are licensed under MIT; see [LICENSE](LICENSE). The call audio components identified in [third-party notices](THIRD_PARTY_NOTICES.md) are GPL-3.0-only and remain under that license. Other third-party components retain their own licenses.
+## 许可证
 
-## Contributions
+Alice 原创项目文件使用 MIT 许可证，详见 [LICENSE](LICENSE)。[第三方声明](THIRD_PARTY_NOTICES.md)中列出的 QQ 通话音频组件使用 GPL-3.0-only，不属于根目录 MIT 许可证覆盖的内容。其他第三方依赖也各自保留原许可证。
 
-The project is not actively maintained at this time. Issues and pull requests may not receive a timely response. Before proposing a change, read the relevant design and evidence-limit documentation in `docs/`.
+## 贡献
+
+项目目前暂停维护，Issue 和 Pull Request 可能无法及时得到回复。提交改动前请先阅读 `docs/` 中相关的设计说明和证据边界。

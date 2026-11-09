@@ -1,15 +1,17 @@
-# Security policy
+[简体中文](SECURITY.md) | [English](SECURITY.en.md)
 
-## Supported versions
+# 安全政策
 
-There are currently no maintained release branches. The repository is experimental and development is paused, so security fixes are not guaranteed.
+## 维护状态
 
-## Reporting a vulnerability
+目前没有受维护的发布分支。项目仍属实验软件且暂停开发，因此不能保证安全问题会得到修复。
 
-Please do not publish exploit details, credentials, or personal data in a public issue. Once this repository is hosted on GitHub, use GitHub's private vulnerability reporting feature if it is enabled. If private reporting is unavailable, contact the repository owner privately before sharing technical details.
+## 漏洞报告
 
-Please include the affected path or component, the impact, and a minimal reproduction that does not use real accounts or data. Do not access, modify, or retain another person's data while investigating.
+请不要在公开 Issue 中发布漏洞利用细节、凭据或个人数据。如果仓库启用了 GitHub 私密漏洞报告功能，请通过该功能提交。若该功能不可用，请先私下联系仓库所有者，再分享技术细节。
 
-## Credential and data handling
+报告请包含受影响的路径或组件、潜在影响，以及不使用真实账号或数据的最小复现方法。调查过程中请勿访问、修改或留存他人的数据。
 
-Never include API keys, cookies, account configuration, real chat histories, memory databases, or runtime ledgers in issues, pull requests, logs, or test fixtures. If a credential has been exposed, revoke or rotate it; removing it from the latest commit does not remove it from Git history or existing clones.
+## 凭据与数据处理
+
+不要在 Issue、Pull Request、日志或测试数据中加入 API 密钥、Cookie、账号配置、真实聊天记录、记忆数据库或运行账本。如果凭据已经泄露，请撤销或轮换；只从最新提交中删除，无法清除 Git 历史或已有克隆中的副本。

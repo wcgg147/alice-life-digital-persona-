@@ -1,19 +1,21 @@
-# Third-party notices
+[简体中文](THIRD_PARTY_NOTICES.md) | [English](THIRD_PARTY_NOTICES.en.md)
 
-## QQ call audio components
+# 第三方声明
 
-The following files are derived from or adapt code from [`oldhan13/napcat-qq-voice-call-win`](https://github.com/oldhan13/napcat-qq-voice-call-win), reference commit `4f1bfeba20bcd7b8d335af03b54f38e743f1aa6d`:
+## QQ 通话音频组件
+
+以下文件源自或改编自 [`oldhan13/napcat-qq-voice-call-win`](https://github.com/oldhan13/napcat-qq-voice-call-win)，参考提交为 `4f1bfeba20bcd7b8d335af03b54f38e743f1aa6d`：
 
 - `alice/qq/call_pcm_worker.py`
 - `alice/qq/native_call_control.mjs`
 
-These files are marked `GPL-3.0-only`; the full license text is retained in [`alice/qq/COPYING.call-audio`](alice/qq/COPYING.call-audio). They are not relicensed under the root MIT license. Keep the upstream attribution and GPL terms with copies or modified versions of these files.
+这些文件标记为 `GPL-3.0-only`，完整许可证文本保存在 [`alice/qq/COPYING.call-audio`](alice/qq/COPYING.call-audio)。它们没有改用根目录 MIT 许可证。复制或修改这些文件时，请保留上游署名和 GPL 条款。
 
-## Runtime dependencies
+## 运行时依赖
 
-The repository does not vendor these packages. This inventory records the versions pinned in `deployment/cognition/requirements.lock` and `package-lock.json`; each link points to the exact published package version or its upstream license source. Preserve each package's own license and notices if you redistribute a bundled build.
+仓库没有直接包含以下依赖包。本清单记录 `deployment/cognition/requirements.lock` 和 `package-lock.json` 中锁定的版本；链接指向对应发布版本或上游许可证来源。若重新分发包含这些依赖的打包版本，请保留各依赖自己的许可证和声明。
 
-| Package | Version | License | Source |
+| 包 | 版本 | 许可证 | 来源 |
 | --- | --- | --- | --- |
 | annotated-types | 0.8.0 | MIT | [PyPI](https://pypi.org/project/annotated-types/0.8.0/) |
 | anyio | 4.16.0 | MIT | [PyPI](https://pypi.org/project/anyio/4.16.0/) |
@@ -29,7 +31,7 @@ The repository does not vendor these packages. This inventory records the versio
 | pydantic | 2.14.2 | MIT | [PyPI](https://pypi.org/project/pydantic/2.14.2/) |
 | pydantic-core | 2.50.2 | MIT | [PyPI](https://pypi.org/project/pydantic-core/2.50.2/) |
 | python-dotenv | 1.2.2 | BSD-3-Clause | [PyPI](https://pypi.org/project/python-dotenv/1.2.2/) |
-| sniffio | 1.3.1 | MIT OR Apache-2.0 | [Upstream](https://github.com/python-trio/sniffio) |
+| sniffio | 1.3.1 | MIT OR Apache-2.0 | [上游](https://github.com/python-trio/sniffio) |
 | tqdm | 4.70.1 | MPL-2.0 AND MIT | [PyPI](https://pypi.org/project/tqdm/4.70.1/) |
 | typing-extensions | 4.16.0 | PSF-2.0 | [PyPI](https://pypi.org/project/typing-extensions/4.16.0/) |
 | typing-inspection | 0.4.4 | MIT | [PyPI](https://pypi.org/project/typing-inspection/0.4.4/) |
